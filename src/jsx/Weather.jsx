@@ -79,7 +79,7 @@ const Weather = ({ city }) => {
     let icon;
     if (feels_like <= 20) icon = '❄';
     else if (feels_like <= 30) icon = '⛅';
-    else icon = '☀';
+    else icon = '🌞';
 
 
     return (
