@@ -9,6 +9,7 @@ const Weather = ({ city }) => {
 
     useEffect(() => {
         const fetchWeather = async () => {
+            // get request
             try {
 
                 const response = await axios.get(
@@ -31,13 +32,14 @@ const Weather = ({ city }) => {
     if (loading) return <p>טוען...</p>;
     if (error) return <p>שגיאה: {error.message}</p>;
 
+    // set the details
     const { main, weather } = weatherData;
     const temp = main.temp;
     const feels_like = main.feels_like;
     const humidity = main.humidity;
     const description = weather[0].description;
 
-
+    // Selecting an appropriate icon
     let icon;
     if (feels_like <= 20) icon = '❄';
     else if (feels_like <= 30) icon = '⛅';
@@ -45,6 +47,7 @@ const Weather = ({ city }) => {
 
 
     return (
+        // Displaying the weather for each country
         <div className="weather-card">
             <div>
                 <h2 className='city'>{city === 'London' ? 'לונדון' : city === 'New York' ? 'ניו יורק' : city === 'Eilat' ? 'אילת' : 'אלסקה'}</h2>
